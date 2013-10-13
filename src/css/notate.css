@@ -1,0 +1,47 @@
+.notate-note {
+	display: block;
+	position: absolute !important;
+	height: 24px;
+	width: 24px;
+	border-radius: 12px;
+	background-color: #d9534f;
+	z-index: 10000;
+}
+
+.notate-note.ui-draggable-dragging {
+	opacity: 0.5;
+}
+
+.notate-notebox-content {
+	min-width: 150px; 
+	min-height: 40px;
+
+}
+
+.notate-notebox-content:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.notate-notebox-footer {
+	margin-top: 10px;
+	font-size: 16px;
+}
+
+.notate-notebox-footer button {
+	font-size: 16px;
+}
+
+.qtip {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 18px;
+}
+
+.qtip .qtip-title {
+	text-align: left;
+}
+
+#NoTate {
+}

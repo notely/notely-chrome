@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Getting Started Extension's Popup</title>
+	<link rel="stylesheet" href="src/css/bootstrap.min.css">
+	<link rel="stylesheet" href="src/css/font-awesome.min.css">
+		<style>
+			body {
+				min-width: 357px;
+				overflow-x: hidden;
+			}
+		</style>
+
+		<!--
+			- JavaScript and HTML must be in separate files: see our Content Security
+			- Policy documentation[1] for details and explanation.
+			-
+			- [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+		 -->
+	</head>
+	<body>
+
+	<div class="btn-group btn-group-justified">
+		<a id="edit" class="btn btn-default">
+			<i class="icon-pencil"></i>
+		</a>
+		<a id="display" class="btn btn-default">
+			<i class="icon-eye-close"></i>
+		</a>
+		<a id="options" class="btn btn-default">
+			<i class="icon-cogs"></i>
+		</a>
+	</div>
+		
+	<script src="src/js/lib/jquery.js"></script>
+	<script src="src/js/lib/bootstrap.min.js"></script>
+	<script src="src/js/lib/underscore.js"></script>
+	<script src="src/js/lib/backbone.js"></script>
+	<script src="src/js/popup.js"></script>
+	</body>
+</html>
+

@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+
+  "name": "NoTate",
+  "description": "With this extension you will be able to annotate web pages just like you do with pdf documents",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "page": "background.html"
+  },
+
+  "permissions": [
+    "tabs",
+    "storage", 
+    "*://*/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches" : ["*://*/*"],
+      "css": [
+        "src/css/jquery.qtip.min.css",
+        "src/css/notate.css"
+      ],
+      "js": [
+        "src/js/lib/jquery.js", 
+        "src/js/lib/jquery.qtip.min.js", 
+        "src/js/lib/jquery.ui.js", 
+        "src/js/lib/underscore.js", 
+        "src/js/lib/backbone.js", 
+        "src/js/content.js"
+      ]
+    }
+  ]
+}
