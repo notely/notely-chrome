@@ -7,7 +7,8 @@
       "underscore": "github:amdjs/underscore/1.5.2",
       "backbone": "github:amdjs/backbone/1.0.0",
       "jquery.qtip.min": "http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.1.1/jquery.qtip.min.js",
-      "bootstrap.min": "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"
+      "bootstrap.min": "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js",
+      "imagesloaded": "github:desandro/imagesloaded/v3.0.4"
     }
   }
 }
