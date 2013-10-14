@@ -2,7 +2,7 @@
 	var NoteView =
 	App.Views.NoteView =
 	Backbone.View.extend({
-		template: _.template('<span class="notate-note" style="top:<%= pageY %>px;left:<%= pageX %>px;"></span>'),
+		template: _.template('<span class="notate-note" style="top:<%= pageY %>px;left:<%= pageX %>px; position: absolute;"></span>'),
 		notebox: _.template(
 			'<div class="notate-notebox-content" contenteditable="true" style="">\
 				<%= content %>\
