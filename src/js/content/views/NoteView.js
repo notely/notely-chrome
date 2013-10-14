@@ -8,7 +8,7 @@
 				<%= content %>\
 			</div>\
 			<div class="notate-notebox-footer" style="text-align: right;">\
-				<button class="delete">Delete</button>\
+				<button class="delete"><i class="noticon-trash"></i> Delete</button>\
 			</div>'),
 		initialize: function () {
 			_.bindAll(this, 
