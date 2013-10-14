@@ -2,7 +2,7 @@
  
 /**
  * App
- * The App module.
+ * The background App module.
  * @author Richard Wålander
  */
 define([
