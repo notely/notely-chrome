@@ -6,6 +6,7 @@
 		initialize: function () {
 			_.bindAll(this,
 				'render',
+				'unrender',
 				'newItem',
 				'hideItems'
 			);
@@ -14,14 +15,17 @@
 			this.collection.on('reset', this.render);
 		},
 		render: function (model) {
-			this.$el.find('.notate-note').qtip('destroy');
-			this.$el.find('.notate-note').remove();
+			this.unrender();
 			this.collection.each(function (model) {
 				var note = new App.Views.NoteView({model: model});
 				this.$el.append(note.render().$el);
 			}, this);
 
 			return this;
+		},
+		unrender: function () {
+			this.$el.find('.notate-note').qtip('destroy');
+			this.$el.find('.notate-note').remove();
 		},
 		newItem: function (e) {
 			if(e.shiftKey) {

@@ -3,7 +3,7 @@
 	Backbone.sync = function (method, model) {
 		console.log('sync', method, model, location);
 		if(method == 'read') {
-			chrome.runtime.sendMessage({crud: "read"}, function (response) {
+			chrome.runtime.sendMessage({event: "notes.read"}, function (response) {
 				if (response.models) {
 					// var models = JSON.parse(response.models);
 					var models = response.models;
@@ -13,7 +13,7 @@
 			});
 		} else if (method == 'create') {
 			chrome.runtime.sendMessage({
-				crud: 'create',
+				event: 'notes.create',
 				// models: JSON.stringify(model.collection)
 				models: model.collection.toJSON()
 			}, function (res) {
@@ -23,7 +23,7 @@
 			var col = model.collection;
 			col.remove(model);
 			chrome.runtime.sendMessage({
-				crud: 'delete',
+				event: 'notes.delete',
 				// models: JSON.stringify(col)
 				models: col.toJSON()
 			}, function (res) {

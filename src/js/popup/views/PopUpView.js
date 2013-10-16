@@ -33,6 +33,11 @@ define([
 		render: function () {
 			console.log(this.template({}));
 			this.$el.append(this.template({}));
+			if(localStorage.getItem('shouldshow') === 'true') {
+				this.$el.find('#display i').addClass('icon-eye-open').removeClass('icon-eye-close');
+			} else {
+				this.$el.find('#display i').addClass('icon-eye-close').removeClass('icon-eye-open');
+			}
 			return this;
 		},
 		events: {
@@ -40,19 +45,18 @@ define([
 		 	// 'click #options': 'options'
 		},
 		display: function () {
-			console.log(localStorage['checked']);
+			console.log('display', localStorage);
 			var event;
-			if(localStorage['checked'] === 'true') {
-				localStorage['checked'] = false;
-				$(this).find('i').addClass('icon-eye-close').removeClass('icon-eye-open');
+			if(localStorage.getItem('shouldshow') === 'true') {
+				localStorage.setItem('shouldshow', 'false');
+				this.$el.find('#display i').addClass('icon-eye-close').removeClass('icon-eye-open');
 				event = 'notes.hide';
 			} else {
-				localStorage['checked'] = true;
-				$(this).find('i').addClass('icon-eye-open').removeClass('icon-eye-close');
+				localStorage.setItem('shouldshow', 'true');
+				this.$el.find('#display i').addClass('icon-eye-open').removeClass('icon-eye-close');
 				event = 'notes.show';
 			}
 			
-			console.log(localStorage['checked']);
 			em.trigger(event);
 		},
 		options: function () {

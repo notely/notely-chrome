@@ -1,25 +1,29 @@
 (function ($, App) {
 	$(function () {
 		var notes,
-			eventmanager,
+			em,
 			notateview;
-		
-		if(localStorage.displaynotes == 'true') {
-			notes = new App.Collections.Notes();
-			notes.fetch();
-			notateview = new App.Views.NoTateView({collection: notes});
-		}
+			
 
-		eventmanager = new App.Utils.EventManager();
+		em = new App.Utils.EventManager();
 
-		eventmanager.on('notes.show', function () {
-			localStorage.displaynotes = true;
-			notes = new App.Collections.Notes();
-			notes.fetch();
-			notateview = new App.Views.NoTateView({collection: notes});
+		em.trigger('notes.shouldshow', null, function (res) {
+			console.log('notes.shouldshow', res);
+			
+			if(res.shouldshow === 'true') {
+				notes = new App.Collections.Notes();
+				notes.fetch();
+				notateview = new App.Views.NoTateView({collection: notes, show: true});
+			}
 		});
-		eventmanager.on('notes.hide', function () {
-			localStorage.displaynotes = false;
+
+		em.on('notes.show', function () {
+			// notes.fetch();
+			location.reload(true);
+		});
+		
+		em.on('notes.hide', function () {
+			// notateview.unrender();
 			location.reload(true);
 		});
 	});

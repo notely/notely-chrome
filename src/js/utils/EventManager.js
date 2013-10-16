@@ -17,7 +17,7 @@ define([
 			console.log(request, sender);
 
 			_(_self.listners).each(function (listner) {
-				if(listner.event === request.event) listner.cb(request);
+				if(listner.event === request.event) listner.cb(request, sender, sendResponse);
 			}, _self);
 			
 			return true;
