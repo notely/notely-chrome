@@ -8,25 +8,36 @@
 define([
 	"jquery",
 	"underscore",
-	"backbone"
-], function($, _, Backbone) {
+	"backbone",
+	"utils/EventManager"
+], function($, _, Backbone, em) {
 	var PopUpView = Backbone.View.extend({
-		template: _.template($('#toolbar-tmpl').html()),
-		id: '#content',
+		template: Handlebars.templates.popuptoolbar,
 		initialize: function () {
+			_.bindAll(this,
+				'render'
+			);
 			this.render();
+			this.$el.on('click', '#options', function () {
+				var optionsUrl = chrome.extension.getURL('src/options.html');
+
+				chrome.tabs.query({url: optionsUrl}, function(tabs) {
+					if (tabs.length) {
+						chrome.tabs.update(tabs[0].id, {active: true});
+					} else {
+						chrome.tabs.create({url: optionsUrl});
+					}
+				});	
+			});
 		},
 		render: function () {
-			_.bindAll(this,
-				'display',
-				'options'
-			);
-			this.$el.append(this.tempalte({}));
+			console.log(this.template({}));
+			this.$el.append(this.template({}));
 			return this;
 		},
 		events: {
-			'click #display': 'display',
-			'click #options': 'options'
+		 	'click #display': 'display',
+		 	// 'click #options': 'options'
 		},
 		display: function () {
 			console.log(localStorage['checked']);
@@ -42,22 +53,10 @@ define([
 			}
 			
 			console.log(localStorage['checked']);
-			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-				chrome.tabs.sendMessage(tabs[0].id, {event: event}, function(response) {
-					console.log(response);
-				});
-			});
+			em.trigger(event);
 		},
 		options: function () {
-			var optionsUrl = chrome.extension.getURL('src/options.html');
-
-			chrome.tabs.query({url: optionsUrl}, function(tabs) {
-				if (tabs.length) {
-					chrome.tabs.update(tabs[0].id, {active: true});
-				} else {
-					chrome.tabs.create({url: optionsUrl});
-				}
-			});
+			
 		}
 	});
 	return PopUpView;

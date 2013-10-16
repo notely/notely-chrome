@@ -18,7 +18,7 @@ define([
 			$('#display').find('i').addClass('icon-eye-close').removeClass('icon-eye-open');
 		}
 
-		var popupview = new PopUpView();
+		var popupview = new PopUpView({el: $('#content')});
 		
 	});
 	return {};

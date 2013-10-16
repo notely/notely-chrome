@@ -4,11 +4,15 @@ require.config({
 		"jquery": "lib/jquery",
 		"backbone": "lib/backbone",
 		"underscore": "lib/underscore",
+		"bootstrap": "lib/bootstrap.min",
 		"ydn": "lib/ydn.db",
 	},
 	shim: {
 		'underscore': {
 			exports: '_'
+		},
+		'bootstrap': {
+			deps: ['jquery']
 		},
 		'backbone': {
 			deps: ['underscore', 'jquery'],
@@ -20,4 +24,4 @@ require.config({
 	}
 });
 
-require(['popup/App']);
+require(['bootstrap', 'popup/App']);
