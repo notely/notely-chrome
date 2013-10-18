@@ -6,6 +6,7 @@ require.config({
 		"underscore": "lib/underscore",
 		"bootstrap": "lib/bootstrap.min",
 		"ydn": "lib/ydn.db",
+		"moment": "lib/moment-with-langs.min"
 	},
 	shim: {
 		'underscore': {

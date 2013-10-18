@@ -50,7 +50,7 @@
 				    viewport: $(window)
 				},
 				show: {
-				    // ready: true
+				    ready: true,
 				    event: 'click'
 				},
 				hide: {
@@ -61,6 +61,9 @@
 					render: function (event, api) {
 						$(api.elements.content).on('click', '.delete', _self.delete);
 						$(api.elements.content).on('blur', '.notate-notebox-content', _self.updateContent);
+					},
+					show: function (event, api) {
+						$(api.elements.content).find('.notate-notebox-content').get(0).focus();
 					}
 				}
 			});

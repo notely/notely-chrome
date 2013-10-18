@@ -1,5 +1,8 @@
 (function ($, App) {
 	$(function () {
+		$('head').append('<link rel="stylesheet" href="' + chrome.extension.getURL('src/css/jquery.qtip.min.css') + '">');
+		$('head').append('<link rel="stylesheet" href="' + chrome.extension.getURL('src/css/notate.css') + '">');
+		
 		var notes,
 			em,
 			notateview;
@@ -25,6 +28,14 @@
 		em.on('notes.hide', function () {
 			// notateview.unrender();
 			location.reload(true);
+		});
+
+		em.on('notes.reload', function () {
+			location.reload(true);
+		}); 
+		
+		em.on('notes.add', function () {
+			notateview.trigger('notes.add');
 		});
 	});
 })(jQuery, App);

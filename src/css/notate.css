@@ -1,3 +1,5 @@
+@import url("http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic");
+
 .notate-note {
 	display: block;
 	position: absolute !important;
@@ -12,10 +14,25 @@
 	opacity: 0.5;
 }
 
+.qtip {
+	/*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 18px;*/
+	font-family: "Lora", Georgia, "Times New Roman", Times, serif;
+  	font-size: 17px;
+  	line-height: 1.5em;
+}
+
+.qtip .qtip-title {
+	text-align: left;
+}
+
 .notate-notebox-content {
 	min-width: 150px; 
 	min-height: 40px;
-
+	font-size: 15px;
+	font-weight: 400;
 }
 
 .notate-notebox-content:focus {
@@ -29,7 +46,9 @@
 }
 
 .notate-notebox-footer button {
+	font-family: "Lora", Georgia, "Times New Roman", Times, serif;
 	font-size: 14px;
+	font-weight: normal;
 	background-color: #333;
 	border: solid 1px #222;
 	border-radius: 4px;
@@ -39,15 +58,8 @@
 	line-height: 16px;
 }
 
-.qtip {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 18px;
-}
-
-.qtip .qtip-title {
-	text-align: left;
+.notate-notebox-footer button:active {
+	color: #999;
 }
 
 .noticon-trash,.noticon-comment {

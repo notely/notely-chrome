@@ -8,7 +8,9 @@
       "backbone": "github:amdjs/backbone/1.0.0",
       "jquery.qtip.min": "http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.1.1/jquery.qtip.min.js",
       "bootstrap.min": "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js",
-      "imagesloaded": "github:desandro/imagesloaded/v3.0.4"
+      "imagesloaded": "github:desandro/imagesloaded/v3.0.4",
+      "handlebars.runtime": "https://raw.github.com/wycats/handlebars.js/1.0.0/dist/handlebars.runtime.js",
+      "moment-with-langs.min": "http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.3.1/moment-with-langs.min.js"
     }
   }
 }

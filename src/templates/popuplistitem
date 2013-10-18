@@ -1,0 +1,5 @@
+<h4 class="list-group-item-heading">Note {{nr}}, {{date}}</h4>
+<p class="list-group-item-text">{{{content}}}</p>
+<p class="clearfix">
+	<button class="delete btn btn-sm btn-default pull-right"><i class="icon-trash"></i></button>
+</p>

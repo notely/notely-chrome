@@ -3,12 +3,35 @@
 	<head>
 		<title>Getting Started Extension's Popup</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!--link rel="stylesheet" href="css/bootstrap-theme.min.css"-->
+	<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.0/spacelab/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.0/slate/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 		<style>
 			body {
 				min-width: 357px;
 				overflow-x: hidden;
+				padding: 4px;
 			}
+
+			#list {
+				margin-top: 4px;
+			}
+
+			a.list-group-item {
+				background-color: #FFFFA3;
+				border-color: #F1D031;
+			}
+
+			a.list-group-item:hover, a.list-group-item:focus {
+				background-color: #f5f58d !important;
+			}
+
+			.btn.btn-default:active {
+				color: #999;
+			}
+			
 		</style>
 
 		<!--
@@ -20,10 +43,13 @@
 	</head>
 	<body>
 
-	<div id="content"></div>
+	<div id="toolbar"></div>
+	<div id="list"></div>
 	
 	<script src="js/lib/handlebars.runtime.js"></script>
 	<script src="js/templates/popuptoolbar.js"></script>
+	<script src="js/templates/popuplistview.js"></script>
+	<script src="js/templates/popuplistitem.js"></script>
 	<script data-main="js/popup" src="js/lib/require.js"></script>
 	</body>
 </html>

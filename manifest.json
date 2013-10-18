@@ -21,20 +21,18 @@
   ],
 
   "web_accessible_resources": [
-    "src/js/*"
+    "src/js/*",
+    "src/css/*"
   ],
 
   "content_scripts": [
     {
       "matches" : ["*://*/*"],
-      "css": [
-        "src/css/jquery.qtip.min.css",
-        "src/css/notate.css"
-      ],
       "js": [
         "src/js/lib/jquery.js", 
         "src/js/lib/jquery.ui.js", 
         "src/js/lib/jquery.qtip.min.js", 
+        "src/js/lib/moment-with-langs.min.js", 
         "src/js/lib/underscore.js", 
         "src/js/lib/backbone.js", 
         "src/js/lib/backbone.sync.js", 

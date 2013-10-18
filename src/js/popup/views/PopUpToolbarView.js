@@ -2,7 +2,7 @@
  
 /**
  * PopUpView
- * The PopUpView module.
+ * The PopUpToolbarView module.
  * @author Richard Wålander
  */
 define([
@@ -15,7 +15,9 @@ define([
 		template: Handlebars.templates.popuptoolbar,
 		initialize: function () {
 			_.bindAll(this,
-				'render'
+				'render',
+				'edit',
+				'display'
 			);
 			this.render();
 			this.$el.on('click', '#options', function () {
@@ -31,18 +33,18 @@ define([
 			});
 		},
 		render: function () {
-			console.log(this.template({}));
 			this.$el.append(this.template({}));
 			if(localStorage.getItem('shouldshow') === 'true') {
 				this.$el.find('#display i').addClass('icon-eye-open').removeClass('icon-eye-close');
 			} else {
 				this.$el.find('#display i').addClass('icon-eye-close').removeClass('icon-eye-open');
 			}
+			this.$el.find('.btn').button();
 			return this;
 		},
 		events: {
 		 	'click #display': 'display',
-		 	// 'click #options': 'options'
+		 	'click #edit': 'edit'
 		},
 		display: function () {
 			console.log('display', localStorage);
@@ -59,8 +61,8 @@ define([
 			
 			em.trigger(event);
 		},
-		options: function () {
-			
+		edit: function () {
+			em.trigger('notes.add');
 		}
 	});
 	return PopUpView;

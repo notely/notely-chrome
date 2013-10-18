@@ -1,4 +1,4 @@
-(function ($,_,Backbone,App) {
+(function ($,_,Backbone,App,moment) {
 	var NoTateView = 
 	App.Views.NoTateView = 
 	Backbone.View.extend({
@@ -8,11 +8,13 @@
 				'render',
 				'unrender',
 				'newItem',
-				'hideItems'
+				'hideItems',
+				'addNote'
 			);
-			this.$el.on('click', this.newItem);
+			// this.$el.on('click', this.newItem);
 			this.collection.on('add', this.render);
 			this.collection.on('reset', this.render);
+			this.on('notes.add', this.addNote);
 		},
 		render: function (model) {
 			this.unrender();
@@ -28,20 +30,24 @@
 			this.$el.find('.notate-note').remove();
 		},
 		newItem: function (e) {
-			if(e.shiftKey) {
+			//if(e.shiftKey) {
 				var model = new Backbone.Model({
 					pageX: e.pageX - 12,
-					pageY: e.pageY - 12
+					pageY: e.pageY - 12,
+					date: moment().format()
 				});
 				this.collection.add(model);
-			}
+			//}
 		},
 		hideItems: function () {
 			this.$el.find('.notate-note').hide();
 		},
 		showItems: function () {
 			this.$el.find('.notate-note').show();
+		},
+		addNote: function () {
+			this.$el.one('click', this.newItem);
 		}
 	});
-})(jQuery, _, Backbone, App);
+})(jQuery, _, Backbone, App, moment);
 	
