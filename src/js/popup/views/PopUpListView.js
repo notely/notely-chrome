@@ -25,10 +25,15 @@ define([
 		},
 		render: function () {
 			this.$el.html('');
-			this.collection.each(function (model) {
-				var listitem = new PopUpListItemView({model: model});
-				this.$el.append(listitem.$el);
-			}, this);
+			if(this.collection.isEmpty()) {
+				this.$el.hide();
+			} else {
+				this.$el.show();
+				this.collection.each(function (model) {
+					var listitem = new PopUpListItemView({model: model});
+					this.$el.append(listitem.$el);
+				}, this);
+			}
 			return this;
 		},
 		events: {

@@ -63,6 +63,7 @@ define([
 		},
 		edit: function () {
 			em.trigger('notes.add');
+			window.close();
 		}
 	});
 	return PopUpView;

@@ -26,6 +26,9 @@
 			}));
 
 			this.$el.draggable({
+				 start: function (event, ui) {
+				 	_self.$el.qtip('hide');
+				 },
 				 stop: function( event, ui ) {
 				 	_self.model.set({
 				 		pageX: event.pageX - 12,
