@@ -19,8 +19,8 @@ define([
 				'render'
 			);
 			this.render();
-			this.collection.on('reset', this.render);
-			this.collection.on('remove', this.render);
+			this.listenTo(this.collection, 'reset', this.render);
+			this.listenTo(this.collection, 'remove', this.render);
 			//this.collection.on('add', this.render);
 		},
 		render: function () {

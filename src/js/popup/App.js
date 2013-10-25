@@ -13,7 +13,23 @@ define([
 	"utils/EventManager"
 ], function($, ydn, PopUpToolbarView, PopUpListView, em) {
 	$(function () {
-		var db = new ydn.db.Storage('NoTate'),
+		var schema = {
+			stores: [{
+				name: 'notes',
+				keyPath: 'url', // optional, 
+				autoIncrement: false, // optional. 
+				indexes: [
+					{
+						keyPath: 'url'
+					}, 
+					{
+						keyPath: 'data',
+						multiEntry: true
+					}
+				] // optional, list of index schema as array.
+			}]
+		};
+		var db = new ydn.db.Storage('NoTate', schema),
 			popuptoolbar,
 			notes,
 			popuplist;

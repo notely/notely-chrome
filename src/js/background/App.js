@@ -10,7 +10,23 @@ define([
 	"underscore",
 	"utils/EventManager"
 ], function(ydn, _, em) {
-	var db = new ydn.db.Storage('NoTate');
+	var schema = {
+		stores: [{
+			name: 'notes',
+			keyPath: 'url', // optional, 
+			autoIncrement: false, // optional. 
+			indexes: [
+				{
+					keyPath: 'url'
+				}, 
+				{
+					keyPath: 'data',
+					multiEntry: true
+				}
+			] // optional, list of index schema as array.
+		}]
+	};
+	var db = new ydn.db.Storage('NoTate', schema);
 	// if (!localStorage.settings) localStorage.settings = JSON.stringify({});
 
 	em.on('notes.read', function (request, sender, sendResponse) {

@@ -5,7 +5,6 @@ require.config({
 		"backbone": "lib/backbone",
 		"underscore": "lib/underscore",
 		"bootstrap": "lib/bootstrap.min",
-		"backbonesync": "lib/backbone.sync.amd",
 		"ydn": "lib/ydn.db",
 		"moment": "lib/moment-with-langs.min"
 	},
@@ -25,5 +24,3 @@ require.config({
 		}
 	}
 });
-
-require(['bootstrap', 'options/App']);

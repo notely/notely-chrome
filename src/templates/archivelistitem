@@ -1,0 +1,8 @@
+<tr>
+	<td>{{no}}</td>
+	<td><a href="#page/{{id}}">{{url}}</a></td>
+	<td>{{count}}</td>
+	<td>
+		<a href="{{url}}" target="_blank">View Page</a> 
+		<a class="export btn btn-xs btn-default pull-right" title="export" style="margin-left: 10px;" data-id="{{id}}"><i class="icomoon-upload"></i></a></td>
+</tr>

@@ -43,11 +43,18 @@
 					button: true
 				},
 				style: {
-					classes: 'qtip-shadow'
+					classes: 'qtip-shadow qtip-rounded',
+					tip: {
+						mimic: 'center',
+						offset: 10
+					}
 				},
 				position: {
 				    at: 'bottom center',
-				    viewport: $(window)
+				    viewport: $(window),
+					adjust: {
+						x: -5
+					}
 				},
 				show: {
 				    ready: true,

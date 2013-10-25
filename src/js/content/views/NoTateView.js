@@ -12,8 +12,8 @@
 				'addNote'
 			);
 			// this.$el.on('click', this.newItem);
-			this.collection.on('add', this.render);
-			this.collection.on('reset', this.render);
+			this.listenTo(this.collection, 'add', this.render);
+			this.listenTo(this.collection, 'reset', this.render);
 			this.on('notes.add', this.addNote);
 		},
 		render: function (model) {

@@ -1,0 +1,8 @@
+<tr>
+	<td>{{no}}</td>
+	<td>{{time}}</td>
+	<td>{{content}}</td>
+	<td style="width: 10%;">
+		<a class="delete btn btn-xs btn-danger pull-right" title="delete" style="margin-left: 2px;" data-cid="{{cid}}"><i class="icon-trash"></i></a>
+	</td>
+</tr>

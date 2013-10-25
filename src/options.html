@@ -1,13 +1,21 @@
 <!doctype html>
 <html>
 	<head>
-		<title>NoTate Options</title>
-	<link rel="stylesheet" href="src/css/bootstrap.min.css">
-	<link rel="stylesheet" href="src/css/font-awesome.min.css">
+		<title>Getting Started Extension's Popup</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!--link rel="stylesheet" href="css/bootstrap-theme.min.css"-->
+		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.0/spacelab/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.0/slate/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/icomoon.css">
+
 		<style>
 			body {
-				min-width: 357px;
 				overflow-x: hidden;
+			}
+			.navbar a.navbar-brand {
+				font-weight: 900;
 			}
 		</style>
 
@@ -19,19 +27,110 @@
 		 -->
 	</head>
 	<body>
-
-	<div class="container">
-		<div class="row-fuid">
-			<div class="col-sm-4">sidebar</div>
-			<div class="col-sm-8">Content</div>
+		<div class="navbar navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#"><img src="img/logo.png" alt=""></a>
+				</div>
+			</div><!-- /.container -->
 		</div>
-	</div>
+
+		<div class="container">
+			<div class="row-fuid">
+				<div class="col-sm-4">
+					<div class="list-group">
+						<a href="#" class="archive list-group-item active">
+							<i class="icomoon-cabinet"></i> Archives
+						</a>
+						<a href="#help" class="help list-group-item">
+							<i class="icomoon-support"></i> Getting started
+						</a>
+						<a href="#import" class="import list-group-item">
+							<i class="icomoon-download"></i> Import
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					
+					<div id="archive" class="panel panel-default">
+						<div class="panel-heading">Saved Notes</div>
+						<div class="panel-body">
+							<table class="table table-striped table-hover">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Web Page</th>
+										<th>Notes</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							<a type="submit" class="btn btn-sm btn-danger"><i class="icon-trash"></i> Clear All Notes</a>
+						</div>
+					</div>
+					
+					<div id="page" class="panel panel-default" style="display: none;">
+						<div class="panel-heading">Notes for: <span>url</span></div>
+						<div class="panel-body">
+							<table class="table table-striped table-hover">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Created</th>
+										<th>Note</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					
+					<div id="help" class="panel panel-default" style="display: none;">
+						<div class="panel-heading">Getting Started</div>
+						<div class="panel-body">
+							Content
+						</div>
+					</div>
+					
+					<div id="import" class="panel panel-default" style="display: none;">
+						<div class="panel-heading">Import</div>
+						<div class="panel-body">
+							<form class="form">
+								<legend>Import notes (JSON format)</legend>
+								<div class="form-group" class="">
+									<label for="textArea" class="control-label">Paste notes JSON here</label>
+									<div class="">
+										<textarea class="form-control" rows="10" id="importarea"></textarea>
+										<!--span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span-->
+									</div>
+								</div>
+								<div class="">
+									<a class="import btn btn-sm btn-primary"><i class="icomoon-download"></i> Import</a>
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
 		
-	<script src="src/js/lib/jquery.js"></script>
-	<script src="src/js/lib/bootstrap.min.js"></script>
-	<script src="src/js/lib/underscore.js"></script>
-	<script src="src/js/lib/backbone.js"></script>
-	<script src="src/js/options.js"></script>
+		<div id="modals"></div>
+
+		<script src="js/lib/handlebars.runtime.js"></script>
+		<script src="js/templates/archivelistitem.js"></script>
+		<script src="js/templates/pagelistitem.js"></script>
+		<script src="js/templates/exportmodal.js"></script>
+		<script data-main="js/options" src="js/lib/require.js"></script>
 	</body>
 </html>
 
