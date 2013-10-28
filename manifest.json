@@ -5,6 +5,11 @@
   "description": "With this extension you will be able to annotate web pages just like you do with pdf documents",
   "version": "0.1",
 
+  "icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" 
+  },
+
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "src/popup.html"
