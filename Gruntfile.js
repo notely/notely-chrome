@@ -3,7 +3,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     release: {
         options: {
-        file: 'manifest.json'//, //default: package.json
+        file: 'manifest.json', //default: package.json
+        npm: false
         // github: { 
         //   repo: 'geddski/grunt-release', //put your user/repo here
         //   usernameVar: 'GITHUB_USERNAME', //ENVIRONMENT VARIABLE that contains Github username 
