@@ -1,24 +1,26 @@
 "use strict";
- 
+
 /**
  * PopUpView
  * The PopUpToolbarView module.
  * @author Richard Wålander
  */
-define([
-	"jquery",
-	"underscore",
-	"backbone",
-	"utils/EventManager"
-], function($, _, Backbone, em) {
-	var PopUpView = Backbone.View.extend({
-		template: Handlebars.templates.popuptoolbar,
+ define([
+ 	"jquery",
+ 	"underscore",
+ 	"backbone",
+ 	"utils/EventManager"
+ 	], function($, _, Backbone, em) {
+ 		var PopUpView = Backbone.View.extend({
+ 			
+ 		template: Handlebars.templates.popuptoolbar,
+
 		initialize: function () {
 			_.bindAll(this,
 				'render',
 				'edit',
 				'display'
-			);
+				);
 			this.render();
 			this.$el.on('click', '#options', function () {
 				var optionsUrl = chrome.extension.getURL('src/options.html');
@@ -43,8 +45,8 @@ define([
 			return this;
 		},
 		events: {
-		 	'click #display': 'display',
-		 	'click #edit': 'edit'
+			'click #display': 'display',
+			'click #edit': 'edit'
 		},
 		display: function () {
 			console.log('display', localStorage);
@@ -58,7 +60,7 @@ define([
 				this.$el.find('#display i').addClass('icon-eye-open').removeClass('icon-eye-close');
 				event = 'notes.show';
 			}
-			
+
 			em.trigger(event);
 		},
 		edit: function () {

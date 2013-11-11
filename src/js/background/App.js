@@ -27,6 +27,10 @@ define([
 		}]
 	};
 	var db = new ydn.db.Storage('NoTate', schema);
+	var shouldshow = localStorage.getItem('shouldshow');
+	if(typeof shouldshow === 'undefined' || shouldshow == null) {
+		localStorage.setItem('shouldshow', 'true');
+	}
 	// if (!localStorage.settings) localStorage.settings = JSON.stringify({});
 
 	em.on('notes.read', function (request, sender, sendResponse) {
@@ -83,6 +87,18 @@ define([
 	em.on('notes.shouldshow', function (request, sender, sendResponse) {
 		console.log(localStorage.getItem('shouldshow'));
 		sendResponse({shouldshow: localStorage.getItem('shouldshow')});
+	});
+
+	//refresh all tabs
+	chrome.tabs.getAllInWindow(null, function(tabs){
+		_(tabs).each(function (tab) {
+			if(tab.url != 'chrome://extensions/' && tab.url != 'opera://extensions/') {
+				chrome.tabs.reload(tab.id);
+			}
+		});
+		// for (var i = 0; i < tabs.length; i++) {
+		// 	chrome.tabs.sendRequest(tabs[i].id, { action: "xxx" });                         
+		// }
 	});
 
 	return {};

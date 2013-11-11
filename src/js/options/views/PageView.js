@@ -14,7 +14,11 @@ define([
 	var PageView = Backbone.View.extend({
 		template: Handlebars.templates.pagelistitem,
 		initialize: function () {
-			_.bindAll(this, 'render', 'delete');
+			_.bindAll(this, 
+				'render', 
+				'delete',
+				'clear'
+			);
 			// this.listenTo(this.collection, 'reset', this.render);
 			// this.listenTo(this.collection, 'remove', this.render);
 			this.listenTo(this.model, 'change', this.render);
@@ -32,7 +36,8 @@ define([
 			}, this);
 		},
 		events: {
-			'click .delete': 'delete'
+			'click .delete': 'delete',
+			'click .clear': 'clear',
 		},
 		delete: function (e) {
 			var col = this.model.get('data');
@@ -45,6 +50,14 @@ define([
 			} else {
 				this.model.trigger('change', this.model);
 				// this.model.collection.trigger('change');
+			}
+		},
+		clear: function () {
+			var conf = confirm('Are you sure that you want to delete all notes for this page? The data will be lost forever.');
+			if(conf) {
+				this.model.collection.trigger('destroy');
+				this.model.destroy();
+				location.hash = '#';
 			}
 		}
 	});

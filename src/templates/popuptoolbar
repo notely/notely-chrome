@@ -3,7 +3,7 @@
 		<i class="icomoon-quill"></i>
 	</a>
 	<a id="display" class="btn btn-default" title="hide/show notes">
-		<i class="icon-eye-close"></i>
+		<i class="icon-eye-open"></i>
 	</a>
 	<a id="options" class="btn btn-default" title="open options page">
 		<i class="icon-cogs"></i>

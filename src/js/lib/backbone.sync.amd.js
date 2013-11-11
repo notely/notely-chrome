@@ -57,13 +57,17 @@ define([
 				console.log(e);
 			});
 		} else if (method == 'delete') {
-			req = db.remove('notes', model.url);
-			req.done(function () {
-				//sendResponse({msg: 'saved'});
-			});
-			req.fail(function (e) {
-				console.log(e);
-			});	
+			if(model == null) {
+				db.clear('notes');
+			} else {
+				req = db.remove('notes', model.url);
+				req.done(function () {
+					//sendResponse({msg: 'saved'});
+				});
+				req.fail(function (e) {
+					console.log(e);
+				});	
+			}
 		}
 		return req;
 	};

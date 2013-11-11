@@ -47,7 +47,7 @@ define([
 			this.pagecollection = new PageCollection();
 
 			this.archiveview = new ArchiveView({el: '#archive', collection: this.pagecollection});
-			// this.pageview = new PageView({el: '#page', collection: this.pagecollection});
+			this.pageview = new PageView({el: '#page', model: new Backbone.Model()});
 			
 			// this.importview = new ImportView({el: '#import', collection: this.archivecollection});
 			this.importview = new ImportView({el: '#import', collection: this.pagecollection});
@@ -82,7 +82,7 @@ define([
 
 			var model = this.pagecollection.get(cid);
 			console.log('page', model);
-			this.pageview = new PageView({el: '#page', model: model});
+			this.pageview.model = model;
 			this.pageview.render();
 		},
 		help: function () {

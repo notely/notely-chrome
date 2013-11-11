@@ -48,29 +48,60 @@ define([
 				var page = this.$el.find('#importarea').val();
 				page = JSON.parse(page);
 				console.log(page);
-				if(!page.url && !page.data) {
-					throw "wrong format";
-				} else {
-					db.get('notes', page.url)
-					.done(function (model) {
-						if(model) {
-							throw "Notes for this page already exist";
+				if(_.isArray(page)) {
+					_(page).each(function (p) {
+						if(!p.url && !p.data) {
+							throw "wrong format";
 						} else {
-							db.put({name: 'notes', keyPath: 'url'}, page)
-							.done(function () {
-								console.log('saved');
-								page.id = Util.hashCode(page.url);
-								_self.collection.add(_self.collection.parse(page));
+							db.get('notes', p.url)
+							.done(function (model) {
+								if(model) {
+									throw "Notes for this page already exist";
+								} else {
+									db.put({name: 'notes', keyPath: 'url'}, p)
+									.done(function () {
+										console.log('saved');
+										p.id = Util.hashCode(p.url);
+										_self.collection.add(_self.collection.parse(p));
+									})
+									.fail(function (e) {
+										alert(e);
+									});
+								}
 							})
 							.fail(function (e) {
 								alert(e);
 							});
 						}
-					})
-					.fail(function (e) {
-						alert(e);
 					});
+				} else {
+					if(!page.url && !page.data) {
+						throw "wrong format";
+					} else {
+						db.get('notes', page.url)
+						.done(function (model) {
+							if(model) {
+								throw "Notes for this page already exist";
+							} else {
+								db.put({name: 'notes', keyPath: 'url'}, page)
+								.done(function () {
+									console.log('saved');
+									page.id = Util.hashCode(page.url);
+									_self.collection.add(_self.collection.parse(page));
+								})
+								.fail(function (e) {
+									alert(e);
+								});
+							}
+						})
+						.fail(function (e) {
+							alert(e);
+						});
+					}
 				}
+
+				this.$el.find('#importarea').val('');
+				
 			} catch(e) {
 				alert(e);
 			}

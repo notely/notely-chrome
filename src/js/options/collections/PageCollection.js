@@ -16,9 +16,15 @@ define([
 		url: '#',
 		sync: SyncManager.pageSync,
 		initialize: function () {
-			_.bindAll(this, 'parse', 'delete', 'update');
+			_.bindAll(this, 
+				'parse', 
+				'delete', 
+				'update',
+				'clear'
+			);
 			this.on('destroy', this.delete);
 			this.on('change', this.update);
+			this.on('reset', this.clear);
 		},
 		parse: function (res) {
 			if(_.isArray(res)) {
@@ -43,9 +49,15 @@ define([
 				this.sync('update', mod);
 			}
 		},
+		clear: function () {
+			if(this.isEmpty()) {
+				this.sync('delete', null);
+			}
+		},
 		toJSON: function () {
 			return this.map(function(model){ 
-				var ret = model.toJSON(options); 
+				var ret = model.toJSON();
+				ret = _(ret).omit('id');
 				ret.data = ret.data.toJSON();
 				return ret;
 			});
