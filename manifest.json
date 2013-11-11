@@ -3,7 +3,7 @@
 
   "name": "Notely",
   "description": "With this extension you will be able to annotate web pages just like you do with pdf documents",
-  "version": "0.1",
+  "version": "0.0.1",
 
   "icons": { "16": "icon16.png",
            "48": "icon48.png",

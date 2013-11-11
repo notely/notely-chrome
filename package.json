@@ -12,5 +12,9 @@
       "handlebars.runtime": "https://raw.github.com/wycats/handlebars.js/1.0.0/dist/handlebars.runtime.js",
       "moment-with-langs.min": "http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.3.1/moment-with-langs.min.js"
     }
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-release": "~0.6.0"
   }
 }
