@@ -6,6 +6,6 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"btn-group btn-group-justified\">\n	<a id=\"edit\" class=\"btn btn-default\" title=\"add note\">\n		<i class=\"icomoon-quill\"></i>\n	</a>\n	<a id=\"display\" class=\"btn btn-default\" title=\"hide/show notes\">\n		<i class=\"icon-eye-open\"></i>\n	</a>\n	<a id=\"options\" class=\"btn btn-default\" title=\"open options page\">\n		<i class=\"icon-cogs\"></i>\n	</a>\n</div>";
+  return "<div class=\"btn-group btn-group-justified\">\n	<a id=\"edit\" class=\"btn btn-default\" title=\"add note\">\n		<i class=\"icomoon-quill\"></i>\n	</a>\n	<a id=\"display\" class=\"btn btn-default\" title=\"hide/show notes\">\n		<i class=\"icon-eye-open\"></i>\n	</a>\n	<a id=\"screenshot\" class=\"btn btn-default\" title=\"take screen shot\">\n		<i class=\"icomoon-camera\"></i>\n	</a>\n	<a id=\"options\" class=\"btn btn-default\" title=\"open options page\">\n		<i class=\"icon-cogs\"></i>\n	</a>\n</div>";
   });
 })();
