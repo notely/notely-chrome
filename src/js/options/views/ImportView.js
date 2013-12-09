@@ -48,6 +48,13 @@ define([
 				var page = this.$el.find('#importarea').val();
 				page = JSON.parse(page);
 				console.log(page);
+				var success = {
+					success: {
+						message: '<strong>Nice.</strong> The notes was imported successfully.'
+					}
+				};
+				var notesexist = {message: '<strong>Error:</strong> '+"Notes for this page already exist"};
+
 				if(_.isArray(page)) {
 					_(page).each(function (p) {
 						if(!p.url && !p.data) {
@@ -56,21 +63,22 @@ define([
 							db.get('notes', p.url)
 							.done(function (model) {
 								if(model) {
-									throw "Notes for this page already exist";
+									throw notesexist;
 								} else {
 									db.put({name: 'notes', keyPath: 'url'}, p)
 									.done(function () {
 										console.log('saved');
 										p.id = Util.hashCode(p.url);
 										_self.collection.add(_self.collection.parse(p));
+										$(document).trigger('notification', [success]);
 									})
 									.fail(function (e) {
-										alert(e);
+										$(document).trigger('notification', [{error: e}]);
 									});
 								}
 							})
 							.fail(function (e) {
-								alert(e);
+								$(document).trigger('notification', [{error: e}]);
 							});
 						}
 					});
@@ -81,21 +89,22 @@ define([
 						db.get('notes', page.url)
 						.done(function (model) {
 							if(model) {
-								throw "Notes for this page already exist";
+								throw notesexist;
 							} else {
 								db.put({name: 'notes', keyPath: 'url'}, page)
 								.done(function () {
 									console.log('saved');
 									page.id = Util.hashCode(page.url);
 									_self.collection.add(_self.collection.parse(page));
+									$(document).trigger('notification', [success]);
 								})
 								.fail(function (e) {
-									alert(e);
+									$(document).trigger('notification', [{error: e}]);
 								});
 							}
 						})
 						.fail(function (e) {
-							alert(e);
+							$(document).trigger('notification', [{error: e}]);
 						});
 					}
 				}
@@ -103,7 +112,8 @@ define([
 				this.$el.find('#importarea').val('');
 				
 			} catch(e) {
-				alert(e);
+				// alert(e);
+				$(document).trigger('notification', [{error: e}]);
 			}
 			
 		}

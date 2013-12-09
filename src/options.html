@@ -17,6 +17,12 @@
 			.navbar a.navbar-brand {
 				font-weight: 900;
 			}
+			.footer {
+				text-align: center;
+			}
+			.footer i {
+				color: #666;
+			}
 		</style>
 
 		<!--
@@ -41,6 +47,14 @@
 		</div>
 
 		<div class="container">
+			<div class="row-fluid">
+				<div id="notifications" class="col-sm-12">
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
 			<div class="row-fuid">
 				<div class="col-sm-4">
 					<div class="list-group">
@@ -60,18 +74,20 @@
 					<div id="archive" class="panel panel-default">
 						<div class="panel-heading">Saved Notes</div>
 						<div class="panel-body">
-							<table class="table table-striped table-hover">
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>Web Page</th>
-										<th>Notes</th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-								</tbody>
-							</table>
+							<div class="table-responsive">
+								<table class="table table-striped table-hover">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Web Page</th>
+											<th>Notes</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
 							<a type="submit" class="clear btn btn-sm btn-danger"><i class="icon-trash"></i> Clear All Notes</a>
 							<a type="submit" class="export-all btn btn-sm btn-default"><i class="icomoon-upload"></i> Export All Notes</a>
 						</div>
@@ -80,18 +96,20 @@
 					<div id="page" class="panel panel-default" style="display: none;">
 						<div class="panel-heading">Notes for: <span>url</span></div>
 						<div class="panel-body">
-							<table class="table table-striped table-hover">
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>Created</th>
-										<th>Note</th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-								</tbody>
-							</table>
+							<div class="table-responsive">
+								<table class="table table-striped table-hover">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Created</th>
+											<th>Note</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
 							<a type="submit" class="clear btn btn-sm btn-danger"><i class="icon-trash"></i> Clear Notes</a>
 						</div>
 					</div>
@@ -151,6 +169,19 @@
 					</div>
 
 				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<div class="container">
+				<hr>
+				<ul class="list-inline">
+					<li><i class="icomoon-home2"></i> <a href="http://notely.github.io/" target="_blank">notely.github.io</a></li>
+					<li><i class="icomoon-github3"></i> <a href="https://github.com/notely/notely-chrome" target="_blank">Github</a></li>
+					<li><i class="icomoon-books"></i> <a href="https://github.com/notely/notely-chrome/wiki" target="_blank">Wiki</a></li>
+					<li><i class="icomoon-bug"></i> <a href="https://github.com/notely/notely-chrome/issues/new" target="_blank">Report Issue</a></li>
+				</ul>
+				<small class="text-muted">All Rights Reserved &copy; Notely <span class="year"></span></small>
 			</div>
 		</div>
 		

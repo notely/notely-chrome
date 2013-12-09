@@ -14,8 +14,9 @@ define([
 	"options/collections/PageCollection",
 	"options/views/ArchiveView",
 	"options/views/PageView",
-	"options/views/ImportView"
-], function($, ydn, _, Backbone, moment, PageCollection, ArchiveView, PageView, ImportView) {
+	"options/views/ImportView",
+	"options/views/NotificationView"
+], function($, ydn, _, Backbone, moment, PageCollection, ArchiveView, PageView, ImportView, NotificationView) {
 	
 	var schema = {
 		stores: [{
@@ -43,6 +44,8 @@ define([
 				'help',
 				'import'
 			);
+
+			this.notificationview = new NotificationView({el: '#notifications'});
 
 			this.pagecollection = new PageCollection();
 

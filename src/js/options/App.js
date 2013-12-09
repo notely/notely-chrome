@@ -13,6 +13,7 @@ define([
 ], function($, ydn, Backbone, MainRouter) {
 	$(function () {
 		var mainrouter = new MainRouter();
+		$('.footer .year').text(new Date().getFullYear());
 	});
 	return {};
 });
